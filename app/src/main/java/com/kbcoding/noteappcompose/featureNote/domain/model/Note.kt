@@ -7,6 +7,7 @@ import com.kbcoding.noteappcompose.ui.theme.LightGreen
 import com.kbcoding.noteappcompose.ui.theme.RedOrange
 import com.kbcoding.noteappcompose.ui.theme.RedPink
 import com.kbcoding.noteappcompose.ui.theme.Violet
+import java.lang.Exception
 
 @Entity
 data class Note(
@@ -20,3 +21,5 @@ data class Note(
         val noteColors = listOf(RedOrange, LightGreen, Violet, BabyBlue, RedPink)
     }
 }
+
+class InvalidNoteException(message: String): Exception(message)

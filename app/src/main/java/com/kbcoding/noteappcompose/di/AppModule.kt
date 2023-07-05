@@ -7,6 +7,7 @@ import com.kbcoding.noteappcompose.App
 import com.kbcoding.noteappcompose.featureNote.data.repository.NoteRepositoryImpl
 import com.kbcoding.noteappcompose.featureNote.data.source.NoteDataBase
 import com.kbcoding.noteappcompose.featureNote.domain.repository.NoteRepository
+import com.kbcoding.noteappcompose.featureNote.domain.useCase.AddNoteUseCase
 import com.kbcoding.noteappcompose.featureNote.domain.useCase.DeleteNoteUseCase
 import com.kbcoding.noteappcompose.featureNote.domain.useCase.GetNotesUseCase
 import com.kbcoding.noteappcompose.featureNote.domain.useCase.NoteUseCases
@@ -42,7 +43,8 @@ object AppModule {
     fun provideNoteUseCases(repository: NoteRepository): NoteUseCases{
         return NoteUseCases(
             getNotesUseCase = GetNotesUseCase(repository),
-            deleteNoteUseCase = DeleteNoteUseCase(repository)
+            deleteNoteUseCase = DeleteNoteUseCase(repository),
+            addNoteUseCase = AddNoteUseCase(repository)
         )
     }
 }
