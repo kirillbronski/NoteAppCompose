@@ -11,4 +11,8 @@ import com.kbcoding.noteappcompose.featureNote.domain.model.Note
 abstract class NoteDataBase : RoomDatabase() {
 
     abstract val noteDao: NoteDao
+
+    companion object {
+        const val DATABASE_NAME = "note_db"
+    }
 }
