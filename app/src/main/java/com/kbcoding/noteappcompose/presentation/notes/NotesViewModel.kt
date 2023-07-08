@@ -10,6 +10,8 @@ import com.kbcoding.noteappcompose.featureNote.domain.util.NoteOrder
 import com.kbcoding.noteappcompose.featureNote.domain.util.OrderType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -20,8 +22,10 @@ class NotesViewModel @Inject constructor(
     private val noteUseCases: NoteUseCases
 ) : ViewModel() {
 
-    private val _state = mutableStateOf(NoteState())
-    val state: State<NoteState> = _state
+    //private val _state = mutableStateOf(NoteState())
+    //val state: State<NoteState> = _state
+    private val _state = MutableStateFlow(NoteState())
+    val state: StateFlow<NoteState> = _state
 
     private var recentlyDeletedNote: Note? = null
 
