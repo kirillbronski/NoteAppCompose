@@ -9,6 +9,7 @@ import com.kbcoding.noteappcompose.featureNote.data.source.NoteDataBase
 import com.kbcoding.noteappcompose.featureNote.domain.repository.NoteRepository
 import com.kbcoding.noteappcompose.featureNote.domain.useCase.AddNoteUseCase
 import com.kbcoding.noteappcompose.featureNote.domain.useCase.DeleteNoteUseCase
+import com.kbcoding.noteappcompose.featureNote.domain.useCase.GetNoteUseCase
 import com.kbcoding.noteappcompose.featureNote.domain.useCase.GetNotesUseCase
 import com.kbcoding.noteappcompose.featureNote.domain.useCase.NoteUseCases
 import dagger.Module
@@ -40,11 +41,12 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideNoteUseCases(repository: NoteRepository): NoteUseCases{
+    fun provideNoteUseCases(repository: NoteRepository): NoteUseCases {
         return NoteUseCases(
             getNotesUseCase = GetNotesUseCase(repository),
             deleteNoteUseCase = DeleteNoteUseCase(repository),
-            addNoteUseCase = AddNoteUseCase(repository)
+            addNoteUseCase = AddNoteUseCase(repository),
+            getNoteUseCase = GetNoteUseCase(repository)
         )
     }
 }
