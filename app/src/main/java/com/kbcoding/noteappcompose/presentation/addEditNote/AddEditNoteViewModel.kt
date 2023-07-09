@@ -63,7 +63,6 @@ class AddEditNoteViewModel @Inject constructor(
                 }
             }
         }
-
     }
 
     fun onEvent(event: AddEditNoteEvent) {
